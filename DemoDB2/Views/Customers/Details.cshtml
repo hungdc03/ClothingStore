@@ -1,0 +1,43 @@
+﻿@model DemoDB2.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>thông tin chi tiết</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameCus)
+        </dd>
+
+        <dt>
+            Điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneCus)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailCus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDCus }) |
+    @Html.ActionLink("Quay lại trang chủ", "Index")
+</p>

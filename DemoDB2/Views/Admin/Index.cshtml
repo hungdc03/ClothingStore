@@ -1,0 +1,26 @@
+﻿@model DemoDB2.Models.AdminUser
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("LoginAccount", "Admin"))
+{
+    @Html.AntiForgeryToken()
+<table>
+    <tr>
+        <td>@Html.LabelFor(model => model.ID)</td>
+        <td>@Html.TextBoxFor(model => model.ID)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.PasswordUser)</td>
+        <td>@Html.TextBoxFor(model => model.PasswordUser)</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Login"/>Login</td>
+    </tr>
+</table>
+}

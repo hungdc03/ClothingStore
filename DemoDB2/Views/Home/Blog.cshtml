@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div>
+        <div class="main">
+            <img src="~/img/blog.jpg" class="team">
+            <hr />
+            <h5>Giới thiệu thành viên</h5>
+            <div class="">
+                <ul>
+                    <li>Huỳnh Thanh Bình 🥰</li>
+                    <li>Nguyễn Anh Đức 😎</li>
+                    <li>Đoàn Đức Đại 🤔</li>
+                    <li>Đặng Công Hùng 😲</li>
+                </ul>
+            </div>
+            <hr />
+            <h5>Giới thiệu về website</h5>
+            <p>
+                Clothing Store là một dự án được xây dựng bởi các thành viên của nhóm 13 thuộc môn lập trình web của cô Mỹ Hạnh.
+                Nhóm chúng mình đã được thành lập ngay sau khi được giao đề tài, sau đó cũng đã phân chia từng task cho từng thành viên.
+            </p>
+            <hr />
+            <h5>Front-End</h5>
+            <ul>
+                <li>Xây dựng trang chủ bắt mắt người dùng</li>
+                <li>Xây dựng Products giúp người mua dễ dàng nhìn thấy sản phẩm</li>
+                <li>Thiết kế giỏ hàng</li>
+                <li>Thiết kế blog</li>
+                <li>Responsive toàn bộ trang web</li>
+            </ul>
+            <h5 style="margin-top:20px;">Back-End</h5>
+            <ul>
+                <li>
+                    Phần quyền Admin
+                </li>
+                <li>
+                    Cập nhật dữ liệu khi khách hàng đăng ký tài khoản
+                </li>
+                <li>
+                    Thêm mới/xóa/sửa sản phẩm vào trang Products
+                </li>
+                <li>
+                    Thêm sản phẩm vào giỏ hàng
+                </li>
+                <li>
+                    Cập nhật dữ liệu sản phẩm vào trong database khi khách hàng thanh toán sản phẩm
+                </li>
+            </ul>
+            <hr />
+            <h5>Tính năng người dùng</h5>
+            <ul>
+                <li>
+                    Mua sản phẩm không cần phải đăng nhập
+                </li>
+                <li>
+                    Tìm kiếm sản phẩm với giá cả mà khách hàng mong muốn
+                </li>
+                <li>Được phép thay đổi thông tin của mình</li>
+            </ul>
+            <hr />
+            <h5>Công nghệ sử dụng</h5>
+            <ul>
+                <li>Asp.net</li>
+                <li>Bootstrap - cải thiện UI</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        *{
+    margin: 0;
+
+}
+
+.main{
+    width: 70%;
+    margin: auto;
+    font-size: 20px;
+    /* border: 1px solid red; */
+    white-space: normal;
+    line-height: 28px;
+    font-family: inherit;
+    /* font-style: italic; */
+    color: #374151;
+    margin-bottom: 20px;
+
+}
+hr{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+p{
+    white-space: normal;
+    line-height: 28px;
+}
+h5{
+    /* text-align: center; */
+    font-size: large;
+}
+.team{
+    width: 40rem;
+    display: block;
+    margin: auto;
+}
+.intro{
+    border-top: 1px solid rgb(222, 222, 222);
+    border-bottom: 1px solid rgb(222, 222, 222);}
+
+@@media only screen and (max-width: 1000px) {
+
+
+    .team{
+        width: 100%;
+    }
+}
+    </style>

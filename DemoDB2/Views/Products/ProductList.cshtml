@@ -1,0 +1,103 @@
+﻿
+@using PagedList.Mvc;
+@model PagedList.IPagedList<DemoDB2.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 style="text-align:center">DANH SÁCH SẢN PHẨM</h2>
+    <div style=" height: 75px; text-align: center; padding: 15px;">
+        @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+        {
+            <table>
+                <tr>
+                    <td style="width:50%">
+                        Tên Sản Phẩm :  @Html.TextBox("SearchString")
+                        <input type="submit" value="Tìm kiếm" class="btn btn-black border border-2" />
+                    </td>
+
+                    <td width="700">
+                        <div style="text-align-last:right">
+                            <a class="btn btn-danger" href="/giohang/index" style="fontweight:200;"> <span class="glyphicon glyphicon-shopping-cart"></span> Your Cart </a>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        }
+    </div>
+    <style>
+        .card-pro {
+            position: relative;
+        }
+
+        .icon-cart {
+            background: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 7px auto;
+            position: absolute;
+            top: 5%;
+            right: 20%;
+        }
+
+        .icon-cart:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .icon-cart2 {
+            background: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 7px auto;
+            position: absolute;
+            top: 12%;
+            right: 20%;
+        }
+
+            .icon-cart2:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="card-pro">
+                    <img src="~/img/@pro.ImagePro" width="85%" />
+                    <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                    <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.Price) VNĐ</font></p>
+                    
+                        <button class="icon-cart">
+                            <a class="bi bi-eye" href="/Products/Details/@pro.ProductID"></a>
+                        </button>
+                        <button class="icon-cart2">
+                            <a type="submit" value="Mua" class="bi bi-cart3"></a>
+                        </button>
+                    
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- Thêm đoạn mã để hiển thị số trang và số trang hiện tại -->
+<h5>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</h5>
+<!--Control PagedListPager: mô tả mô hình với số trang là liên kết với tham số "Index" và tham
+số page-->
+@Html.PagedListPager(Model, page => Url.Action("ProductList", new { page }))
+<!-- Kết thúc -->

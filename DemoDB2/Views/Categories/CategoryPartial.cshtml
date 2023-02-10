@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DemoDB2.Models.Category>
+
+<style>
+    #div-u {
+        padding-top: 30px;
+        margin-top: 20px;
+        background-color: snow;
+        text-decoration: none;
+    }
+
+    .div-cate {
+        height: 15px;
+        width: 100%;
+    }
+
+        .div-cate a {
+            color: black;
+            text-decoration: none;
+            font-size: large;
+        }
+
+            .div-cate a:hover {
+                color: blue;
+                text-decoration: none;
+            }
+</style>
+<br />
+<h4 style="color:black; text-align:center;" class="shadow p-3 mb-4 bg-body rounded">DANH MỤC SẢN PHẨM</h4>
+<ul style="list-style-type: none;" id="div-u">
+    @{
+        foreach (var item in Model)
+        {
+            <li class="div-cate">
+                @Html.ActionLink(item.NameCate, "ProductList", "Products", new {category = item.IDCate}, "")
+            </li>
+            <hr />
+        }
+    }
+</ul>

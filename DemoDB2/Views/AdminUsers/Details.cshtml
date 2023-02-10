@@ -1,0 +1,43 @@
+﻿@model DemoDB2.Models.AdminUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin chi tiết</h2>
+
+<div>
+    <h4>AdminUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Admin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameUser)
+        </dd>
+
+        <dt>
+            Cấp/ Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleUser)
+        </dd>
+
+        <dt>
+            Mật khẩu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Quay lại trang chủ", "Index")
+</p>

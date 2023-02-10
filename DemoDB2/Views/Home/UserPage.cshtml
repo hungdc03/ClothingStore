@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "UserPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="container">
+        <ul>
+            @if (Session["IDCus"] != null)
+            {
+                <li>
+                    <h4 class="text-center">THÔNG TIN KHÁCH HÀNG</h4>
+                    @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                    {
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <td class=" pb-5">Avartar Khách</td>
+                                                <td>
+                                                    <span name="AvartaCustomer" required><img src="~/img/@Session["Avarta"]" width="60" /></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>MÃ Khách Hàng : </td>
+                                                <td><span name="CodeCustomer" required>@Session["IDCus"]</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tên Khách Hàng : </td>
+                                                <td><span name="NameCustomer" required>@Session["NameCus"]</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Điên thoại : </td>
+                                                <td><span name="PhoneCus" required>@Session["PhoneCus"]</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Email : </td>
+                                                <td><span name="EmailCus" required>@Session["EmailCus"]</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td> Tài Khoản Khách : </td>
+                                                <td><span name="UserName" required>@Session["UserName"]</span></td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </li>
+                @*<li class="text-center btn btn-warning">
+                    @Html.ActionLink("Sửa Thông Tin", "Edit", "Customers", new {id = Session["IDCus"]})
+                </li>*@
+            }
+            else
+            {
+                <li class="text-center">
+                    <a href="/Customers/LoginCus" class="btn btn-warning">Đăng Nhập</a>
+                </li>
+            }
+        </ul>
+    </div>
+</body>
